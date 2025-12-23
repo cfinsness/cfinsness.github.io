@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eclipse Chasers - Catherine Finsness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-wrapper">
+        <aside class="sidebar">
+            <header class="header">
+                <h1 class="logo">
+                    <a href="index.html">Catherine Finsness</a>
+                </h1>
+            </header>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item has-dropdown open">
+                        <a href="#" class="nav-link category">Films</a>
+                        <ul class="dropdown">
+                            <li><a href="margaret.html">Margaret</a></li>
+                            <li><a href="cloistered.html">Cloistered</a></li>
+                            <li><a href="eclipse-chasers.html" class="selected">Eclipse Chasers</a></li>
+                            <li><a href="mud.html">Mud</a></li>
+                            <li><a href="the-age-of-carpets.html">Age of Carpets</a></li>
+                            <li><a href="bay-animations.html">Bay animations</a></li>
+                            <li><a href="lighthouse.html">Lighthouse</a></li>
+                            <li><a href="light-moves.html">Light Moves</a></li>
+                            <li><a href="earth-laughs-in-flowers.html">Earth Laughs in Flowers</a></li>
+                            <li><a href="eye.html">Eye</a></li>
+                            <li><a href="ramses-eyes.html">Ramses' Eyes</a></li>
+                            <li><a href="brock-enright.html">Brock Enright</a></li>
+                            <li><a href="gina-beavers.html">Gina Beavers</a></li>
+                            <li><a href="firelei-baez.html">Firelei Baez</a></li>
+                            <li><a href="dr-maguire.html">Dr. Maguire</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
+            <div class="content">
+                <div class="project-description">
+                    <img src="images/title-eclipse.jpeg" alt="Eclipse Chasers" style="height: 4.8em; width: auto; margin-bottom: 20px;">
+
+                    <p>Eclipse Chasers (2024, 7 mins, Color, Sound)</p>
+
+                    <p>An experimental exploration of the awe and mystery of total solar eclipses, told through personal accounts, archival footage, and stop-motion animation</p>
+
+                    <p>Watch the film <a href="https://vimeo.com/947238354" style="color: #0080ff;">here</a></p>
+
+                    <div style="margin-bottom: 20px;">
+                        <video autoplay loop muted playsinline style="width: 100%; height: auto;">
+                            <source src="videos/eclipse-title.mov" type="video/quicktime">
+                        </video>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <video autoplay loop muted playsinline style="width: 100%; height: auto;">
+                            <source src="videos/eclipse-2.mov" type="video/quicktime">
+                        </video>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <video autoplay loop muted playsinline style="width: 100%; height: auto;">
+                            <source src="videos/eclipse-3.mov" type="video/quicktime">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © All rights reserved</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        const dropdownItems = document.querySelectorAll('.has-dropdown');
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

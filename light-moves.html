@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Moves - Catherine Finsness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-wrapper">
+        <aside class="sidebar">
+            <header class="header">
+                <h1 class="logo">
+                    <a href="index.html">Catherine Finsness</a>
+                </h1>
+            </header>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item has-dropdown open">
+                        <a href="#" class="nav-link category">Films</a>
+                        <ul class="dropdown">
+                            <li><a href="margaret.html">Margaret</a></li>
+                            <li><a href="cloistered.html">Cloistered</a></li>
+                            <li><a href="eclipse-chasers.html">Eclipse Chasers</a></li>
+                            <li><a href="mud.html">Mud</a></li>
+                            <li><a href="the-age-of-carpets.html">Age of Carpets</a></li>
+                            <li><a href="bay-animations.html">Bay animations</a></li>
+                            <li><a href="lighthouse.html">Lighthouse</a></li>
+                            <li><a href="light-moves.html" class="selected">Light Moves</a></li>
+                            <li><a href="earth-laughs-in-flowers.html">Earth Laughs in Flowers</a></li>
+                            <li><a href="eye.html">Eye</a></li>
+                            <li><a href="ramses-eyes.html">Ramses' Eyes</a></li>
+                            <li><a href="brock-enright.html">Brock Enright</a></li>
+                            <li><a href="gina-beavers.html">Gina Beavers</a></li>
+                            <li><a href="firelei-baez.html">Firelei Baez</a></li>
+                            <li><a href="dr-maguire.html">Dr. Maguire</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
+            <div class="content">
+                <div class="project-description">
+                    <p>Light Moves</p>
+
+                    <p>The optical effect was created by 3d-printing a custom piece to hold special optical cubes in front of the lens.</p>
+
+                    <p>Length: 2.38, Digital</p>
+
+                    <p><strong>Screenings</strong><br>
+                    Light Moves, City Shorts Film Festival, Roxie Theatre (2023)<br>
+                    Light Moves, Artist Television Access (2022)</p>
+
+                    <p><strong>Awards</strong><br>
+                    Won Best Experimental Film Award at City Shorts Film Festival</p>
+
+                    <div class="image-gallery" style="margin-top: 30px;">
+                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <img src="images/light-moves/Light+Moves+Still+Image+Catherine+Finsness.png" alt="Light Moves still" style="width: 50%; height: auto;">
+                            <img src="images/light-moves/Screen+Shot+2023-06-08+at+3.12.05+PM.png" alt="Light Moves still" style="width: 50%; height: auto;">
+                        </div>
+                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <img src="images/light-moves/Screen+Shot+2023-06-08+at+3.13.00+PM.png" alt="Light Moves still" style="width: 50%; height: auto;">
+                            <img src="images/light-moves/Screen+Shot+2024-01-09+at+9.36.17+AM.png" alt="Light Moves still" style="width: 50%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © All rights reserved</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        const dropdownItems = document.querySelectorAll('.has-dropdown');
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

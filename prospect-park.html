@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prospect Park - Catherine Finsness</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="site-wrapper">
+        <aside class="sidebar">
+            <header class="header">
+                <h1 class="logo">
+                    <a href="index.html">Catherine Finsness</a>
+                </h1>
+            </header>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item has-dropdown open">
+                        <a href="#" class="nav-link category">Films</a>
+                        <ul class="dropdown">
+                            <li><a href="margaret.html">Margaret</a></li>
+                            <li><a href="cloistered.html">Cloistered</a></li>
+                            <li><a href="eclipse-chasers.html">Eclipse Chasers</a></li>
+                            <li><a href="mud.html">Mud</a></li>
+                            <li><a href="the-age-of-carpets.html">Age of Carpets</a></li>
+                            <li><a href="bay-animations.html">Bay animations</a></li>
+                            <li><a href="lighthouse.html">Lighthouse</a></li>
+                            <li><a href="light-moves.html">Light Moves</a></li>
+                            <li><a href="earth-laughs-in-flowers.html">Earth Laughs in Flowers</a></li>
+                            <li><a href="eye.html">Eye</a></li>
+                            <li><a href="ramses-eyes.html">Ramses' Eyes</a></li>
+                            <li><a href="brock-enright.html">Brock Enright</a></li>
+                            <li><a href="gina-beavers.html">Gina Beavers</a></li>
+                            <li><a href="firelei-baez.html">Firelei Baez</a></li>
+                            <li><a href="dr-maguire.html">Dr. Maguire</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
+            <div class="content">
+                <div class="project-description">
+                    <p>Prospect Park (2019, Color, Sound)<br>
+                    A short film on Prospect Park<br>
+                    Official Selection at DOC NYC Festival in 2019.</p>
+
+                    <div class="image-gallery">
+                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_2_24_47_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_2_27_18_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                        </div>
+                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_2_27_51_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_3_00_07_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                        </div>
+                        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_3_01_52_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                            <img src="images/prospect-park/Screen_Shot_2020-08-07_at_3_02_24_PM.png" alt="Prospect Park still" style="width: 50%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © All rights reserved</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+        const dropdownItems = document.querySelectorAll('.has-dropdown');
+        dropdownItems.forEach(item => {
+            const link = item.querySelector('.nav-link');
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
