@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacant to Vibrant - Catherine Finsness</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Terminal Grotesque font from Velvetyne -->
+    <style>
+        @font-face {
+            font-family: 'Terminal Grotesque';
+            src: url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque.woff2') format('woff2'),
+                 url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Terminal Grotesque Open';
+            src: url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque-open.woff2') format('woff2'),
+                 url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque-open.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        *, *::before, *::after {
+            cursor: url('images/VTV/strawberry_cursor.png'), auto;
+        }
+
+        /* Collage-style design */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        body {
+            background: #f5f0e6;
+            color: #000;
+            min-height: 100vh;
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            overflow-x: hidden;
+            padding-left: 40px;
+        }
+
+        .site-wrapper {
+            background: #f5f0e6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .main {
+            background: transparent;
+            border: none;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            max-width: 1400px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            width: 100%;
+        }
+
+        .project-description {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Override any external styles */
+        .main {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            float: none !important;
+        }
+
+        /* Header - collage style */
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-description h1 {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            font-size: 5em;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 0.85;
+            margin-bottom: 10px;
+            color: #000;
+            transform: rotate(-2deg);
+            display: inline-block;
+            background: #ff1493;
+            padding: 20px 40px;
+        }
+
+        .project-description h2 {
+            font-family: 'Terminal Grotesque Open', 'Arial', sans-serif;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #000;
+            margin-bottom: 40px;
+            font-weight: normal;
+            background: #ffd700;
+            padding: 15px 25px;
+            display: inline-block;
+            transform: rotate(1deg);
+        }
+
+        .project-description h3 {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            font-size: 1.9em;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+
+        .project-description p {
+            font-family: 'Courier New', monospace;
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        /* Collage rows using flexbox */
+        .collage-row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .collage-row.overlap-up {
+            margin-top: -80px;
+        }
+
+        /* Floating sections */
+        .float-section {
+            max-width: 500px;
+            padding: 25px;
+            background: #fff;
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        /* Introduction row */
+        /* Intro row - side by side with overlap */
+        .intro-row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 0;
+            margin-bottom: 60px;
+        }
+
+        .intro-section {
+            transform: rotate(-1deg);
+            max-width: 450px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-section .intro-text {
+            border: 3px solid #000;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .intro-video-float {
+            width: 600px;
+            transform: rotate(2deg);
+            margin-left: -60px;
+            position: relative;
+            z-index: 5;
+            border: 3px solid #00bfff;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .intro-video-float iframe {
+            width: 100%;
+            height: 338px;
+            display: block;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Quilt carousel - full width */
+        .quilt-strip {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            transform: rotate(-1deg);
+            overflow: hidden;
+            padding: 20px 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.9) 10%, rgba(255,255,255,0.9) 90%, transparent 100%);
+            margin-bottom: 40px;
+        }
+
+        .quilt-strip .carousel-track {
+            display: flex;
+            gap: 15px;
+            animation: scroll-quilts 30s linear infinite;
+        }
+
+        .quilt-strip .carousel-track img {
+            min-width: 450px;
+            height: 450px;
+            object-fit: cover;
+            box-shadow: 3px 3px 0px #000;
+        }
+
+        @keyframes scroll-quilts {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* The Stitch row */
+        .stitch-section {
+            transform: rotate(1.5deg);
+            max-width: 550px;
+        }
+
+        .stitch-section h3 {
+            background: #ff1493;
+            transform: rotate(-2deg);
+            margin-left: -10px;
+        }
+
+        .stitch-video-container {
+            transform: rotate(-2deg);
+            margin-left: 60px;
+        }
+
+        .stitch-video-container iframe {
+            width: 604px;
+            height: 345px;
+            border: 3px solid purple;
+        }
+
+        .stitch-video-caption {
+            text-align: center;
+            font-size: 0.85em;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        /* Video + Sound row - side by side */
+        .video-sound-row {
+            flex-wrap: nowrap;
+            align-items: center;
+            margin-left: 80px;
+        }
+
+        .sound-section {
+            transform: rotate(-0.5deg);
+            max-width: 480px;
+            margin-left: 60px;
+        }
+
+        .sound-section h3 {
+            background: #32cd32;
+            transform: rotate(1deg);
+        }
+
+        .sound-image-container {
+            transform: rotate(3deg);
+        }
+
+        .sound-image-container img {
+            width: 280px;
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0px #32cd32;
+        }
+
+        .music-samples {
+            margin-top: 15px;
+        }
+
+        .music-track {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 2px solid #000;
+            background: #f5f0e6;
+        }
+
+        .track-title {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            min-width: 120px;
+            margin-right: 10px;
+        }
+
+        .music-track audio {
+            flex-grow: 1;
+            height: 30px;
+            accent-color: #ba55d3;
+        }
+
+        /* Audio player styling */
+        .music-track audio::-webkit-media-controls-panel {
+            background: #d8b4e2;
+        }
+
+        .music-track audio::-webkit-media-controls-play-button {
+            background-color: #ba55d3;
+            border-radius: 50%;
+        }
+
+        .music-track audio::-webkit-media-controls-timeline {
+            background: #d8b4e2;
+        }
+
+        .music-track audio::-webkit-media-controls-current-time-display,
+        .music-track audio::-webkit-media-controls-time-remaining-display {
+            color: #000;
+        }
+
+        /* The Reveal */
+        .reveal-section {
+            transform: rotate(0.5deg);
+            max-width: 600px;
+        }
+
+        .reveal-section h3 {
+            background: #ba55d3;
+            transform: rotate(-1.5deg);
+        }
+
+        .reveal-section .video-embed {
+            margin-top: 15px;
+            display: inline-block;
+            background: #000;
+            border: 3px solid #ba55d3;
+            overflow: hidden;
+        }
+
+        .reveal-section iframe {
+            display: block;
+            border: none;
+        }
+
+        /* Bottom row - Documentary and Screen */
+        .documentary-section {
+            transform: rotate(1.5deg);
+            max-width: 600px;
+        }
+
+        .documentary-section h3 {
+            background: #ffd700;
+        }
+
+        .documentary-row {
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            overflow: visible;
+            max-width: none;
+        }
+
+        .documentary-image {
+            margin-left: 30px;
+            transform: rotate(2deg);
+            z-index: 15;
+            flex-shrink: 0;
+            max-width: none;
+            overflow: visible;
+        }
+
+        .documentary-image img {
+            width: 448px;
+            max-width: none !important;
+            border: 3px solid #ffd700;
+            box-shadow: 5px 5px 0px #000;
+        }
+
+        .documentary-caption {
+            text-align: center;
+            font-size: 0.85em;
+            margin-top: 10px;
+            color: #000;
+        }
+
+        /* Artbooks section */
+        .artbooks-section {
+            transform: rotate(-1deg);
+            max-width: 700px;
+        }
+
+        .artbooks-section h3 {
+            background: #ff6b6b;
+        }
+
+        .reveal-artbooks-row {
+            align-items: flex-start;
+            flex-wrap: nowrap;
+            margin-left: 140px;
+        }
+
+        .artbooks-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 30px;
+            margin-top: 150px;
+        }
+
+        .artbooks-wrapper .artbooks-section {
+            z-index: 10;
+        }
+
+        .artbooks-wrapper .artbooks-video {
+            margin-top: -20px;
+            margin-bottom: -80px;
+            z-index: 5;
+        }
+
+        .reveal-artbooks-row .reveal-section {
+            z-index: 10;
+            margin-left: 80px;
+        }
+
+        .artbooks-video {
+            display: block;
+            background: #000;
+            border: 3px solid #ff6b6b;
+            overflow: hidden;
+            transform: rotate(1deg);
+        }
+
+        .artbooks-video iframe {
+            width: 550px;
+            height: 310px;
+            border: none;
+            display: block;
+            transform: rotate(-1deg);
+        }
+
+        .screen-section {
+            transform: rotate(-1deg);
+            max-width: 550px !important;
+            min-width: 450px;
+            margin-bottom: -40px;
+            z-index: 10;
+            position: relative;
+            border: 4px dashed #00ced1;
+            border-radius: 30px 5px 30px 5px;
+            box-shadow: none;
+        }
+
+        .screen-section h3 {
+            background: #00ced1;
+            transform: rotate(2deg);
+        }
+
+        .screen-row {
+            flex-direction: column;
+            align-items: center;
+            margin-top: 130px;
+        }
+
+        .screen-videos {
+            display: flex;
+            gap: 40px;
+        }
+
+        .quilt-frames-collage {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quilt-frame {
+            padding: 25px;
+            background-image: url('images/VTV/forweb/_MG_4163.jpg');
+            background-size: cover;
+            background-position: center center;
+            border-radius: 10px;
+            transform: rotate(-2deg);
+        }
+
+        .quilt-frame-2 {
+            background-image: url('images/VTV/forweb/_MG_4187.jpg') !important;
+            transform: rotate(2deg) !important;
+            padding: 25px 25px 60px 25px;
+        }
+
+        .quilt-frame-2 .quilt-frame-video-wrapper {
+            width: 481px;
+            height: 361px;
+        }
+
+        .quilt-frame-video-wrapper {
+            width: 437px;
+            height: 328px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid #ba55d3;
+        }
+
+        .quilt-frame-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-with-caption {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-with-caption-2 {
+            margin-top: 50px;
+            margin-left: 20px;
+        }
+
+        .quilt-frame-caption {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #000;
+        }
+
+        /* Decorative elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 4px solid #000;
+            z-index: -1;
+        }
+
+        .deco-row {
+            position: relative;
+        }
+
+        .deco-1 {
+            width: 150px;
+            height: 150px;
+            background: #ff1493;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.6;
+        }
+
+        .deco-2 {
+            width: 80px;
+            height: 80px;
+            background: #32cd32;
+            top: 20px;
+            right: 10%;
+            opacity: 0.5;
+        }
+
+        .deco-3 {
+            width: 120px;
+            height: 120px;
+            background: #ffd700;
+            bottom: -30px;
+            left: 15%;
+            opacity: 0.4;
+        }
+
+        /* Hide sidebar on this page */
+        .sidebar {
+            display: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f5f0e6;
+            border-top: 3px solid #000;
+            color: #000;
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8em;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Strawberry trail */
+        .strawberry-trail {
+            position: fixed;
+            pointer-events: none;
+            width: 24px;
+            height: 24px;
+            background-image: url('images/VTV/strawberry_cursor.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <main class="main">
+            <div class="content">
+                <div class="project-description">
+                    <!-- Header -->
+                    <div class="header-section">
+                        <h1>Margaret Fabrizio: A Retrospective</h1>
+                        <br>
+                        <h2>95 Years of Curiosity, From Carnegie Hall to the Siddi Forest.</h2>
+                    </div>
+
+                    <!-- Row 1: Introduction + Video -->
+                    <div class="intro-row">
+                        <div class="float-section intro-section">
+                            <div class="intro-text">
+                                <p>Margaret Fabrizio does not live in the past; she creates the future. At 95, Margaret is a San Francisco icon whose creative output is as prolific as it is unpredictable.</p>
+                                <p>This pop-up retrospective will be a living 'collage' of a life dedicated to the 'what if?'—inviting you into a world where 17th-century Baroque music meets 21st-century YouTube performance.</p>
+                            </div>
+                        </div>
+                        <div class="intro-video-float">
+                            <iframe src="https://player.vimeo.com/video/1162934603?h=94eef048b0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;loop=1&amp;autoplay=1&amp;muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen title="Intro Video"></iframe>
+                        </div>
+                    </div>
+
+                    <!-- Quilt carousel -->
+                    <div class="quilt-strip">
+                        <div class="carousel-track">
+                            <img src="images/VTV/quilts/forweb/111_Garden_Spider.jpg" alt="Garden Spider">
+                            <img src="images/VTV/quilts/forweb/Showtime_.jpg" alt="Showtime">
+                            <img src="images/VTV/quilts/forweb/120_Purple.jpg" alt="Purple">
+                            <img src="images/VTV/quilts/forweb/108_Dots.jpg" alt="Dots">
+                            <img src="images/VTV/quilts/forweb/94_Pants_and_a_Girls_Top_.jpg" alt="Pants and a Girls Top">
+                            <img src="images/VTV/quilts/forweb/87_Jungle_Blossoms.jpg" alt="Jungle Blossoms">
+                            <img src="images/VTV/quilts/forweb/58_Journey.jpg" alt="Journey">
+                            <img src="images/VTV/quilts/forweb/78_Elvis_Macaroons.jpg" alt="Elvis Macaroons">
+                            <img src="images/VTV/quilts/forweb/77_Green.jpg" alt="Green">
+                            <img src="images/VTV/quilts/forweb/73_Gathering_of_the_Tribes.jpg" alt="Gathering of the Tribes">
+                            <img src="images/VTV/quilts/forweb/54_Siddi_Colors.jpg" alt="Siddi Colors">
+                            <img src="images/VTV/quilts/forweb/Harvest.jpg" alt="Harvest">
+                            <!-- Duplicate for seamless scroll -->
+                            <img src="images/VTV/quilts/forweb/111_Garden_Spider.jpg" alt="Garden Spider">
+                            <img src="images/VTV/quilts/forweb/Showtime_.jpg" alt="Showtime">
+                            <img src="images/VTV/quilts/forweb/120_Purple.jpg" alt="Purple">
+                            <img src="images/VTV/quilts/forweb/108_Dots.jpg" alt="Dots">
+                            <img src="images/VTV/quilts/forweb/94_Pants_and_a_Girls_Top_.jpg" alt="Pants and a Girls Top">
+                            <img src="images/VTV/quilts/forweb/87_Jungle_Blossoms.jpg" alt="Jungle Blossoms">
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Stitch text -->
+                    <div class="collage-row overlap-up">
+                        <div class="float-section stitch-section">
+                            <p>Margaret's quilts are a masterclass in improvisation. Her practice was transformed in 2011 after a journey to India to study with the Siddi women. Learning the Kawandi technique—a method of hand-stitching from the outside-in—Margaret embraced a 'slow-stitch' philosophy.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Stitch video + Sound section -->
+                    <div class="collage-row video-sound-row">
+                        <div class="stitch-video-container">
+                            <iframe src="https://player.vimeo.com/video/1162383287?h=20dbb01d3f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="margaret_vtv_webpage_quilts"></iframe>
+                            <p class="stitch-video-caption">Margaret speaking about wanting to show her quilts in public in 2013.</p>
+                        </div>
+                        <div class="float-section sound-section">
+                            <p>Long before she picked up a needle, Margaret was a pioneer of the harpsichord. As the first artist to perform Bach's Art of Fugue on the harpsichord in America, her musical career spanned from Carnegie Hall to the experimental energy of 1970s San Francisco.</p>
+                            <div class="music-samples">
+                                <div class="music-track">
+                                    <span class="track-title">Toccata Quarta</span>
+                                    <audio controls>
+                                        <source src="music/toccata.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                                <div class="music-track">
+                                    <span class="track-title">L'Arlequine</span>
+                                    <audio controls>
+                                        <source src="music/larlequine.mp3" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: The Reveal + Artbooks -->
+                    <div class="collage-row reveal-artbooks-row">
+                        <div class="float-section reveal-section">
+                            <p>Margaret has created over 80 'Portrait Masks', which gained global recognition when featured on the cover of the Grateful Dead's 1987 album, <em>In the Dark</em>. For Margaret, a mask is not a way to hide—it is a way to reveal.</p>
+                            <div class="video-embed">
+                                <iframe title="vimeo-player" src="https://player.vimeo.com/video/1162934980?h=16b6d4b7e5&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;loop=1&amp;autoplay=1&amp;muted=1" width="500" height="280" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="artbooks-wrapper">
+                            <div class="float-section artbooks-section">
+                                <p>In collaboration with master bookmaker Howard Munson, Margaret creates "architectures of memory" — handmade art books blending intricate collage with personal narrative. These tactile volumes represent a decades-long partnership and a shared devotion to craftsmanship, offering an intimate, detailed window into the finer textures of Margaret's vast imagination.</p>
+                            </div>
+                            <div class="artbooks-video">
+                                <iframe src="https://player.vimeo.com/video/1162935262?h=f02a8c10d3&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;loop=1&amp;autoplay=1&amp;muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="artbooks"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Screen text + Screen videos -->
+                    <div class="collage-row screen-row">
+                        <div class="deco-circle deco-3"></div>
+                        <div class="float-section screen-section">
+                            <p>An 'early YouTuber' in every sense, Margaret has been documenting her creative experiments digitally since 2004. Her films don't just document her art. They are her art.</p>
+                        </div>
+                        <div class="screen-videos">
+                            <div class="video-with-caption">
+                                <div class="quilt-frame">
+                                    <div class="quilt-frame-video-wrapper">
+                                        <iframe src="https://player.vimeo.com/video/1162697798?h=81dd16702a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Vlog #1"></iframe>
+                                    </div>
+                                </div>
+                                <p class="quilt-frame-caption">Vlog #1 (2007)</p>
+                            </div>
+                            <div class="video-with-caption video-with-caption-2">
+                                <div class="quilt-frame quilt-frame-2">
+                                    <div class="quilt-frame-video-wrapper">
+                                        <iframe src="https://player.vimeo.com/video/1162701217?h=857dec0388&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Re; a Real Video Blogger"></iframe>
+                                    </div>
+                                </div>
+                                <p class="quilt-frame-caption">Re: a Real Video Blogger (2007)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 6: Documentary -->
+                    <div class="collage-row documentary-row">
+                        <div class="float-section documentary-section">
+                            <h3>The Documentary</h3>
+                            <p>We are currently documenting Margaret's process as we curates this retrospective together. This space serves as both a gallery and a film set—where the past 95 years of work meet the lens of the future.</p>
+                        </div>
+                        <div class="documentary-image">
+                            <img src="images/VTV/forweb/margaret-lynn-hershman_008.jpg" alt="Margaret documentary">
+                            <p class="documentary-caption">Margaret with filmmakers Poppy Lynch and Catherine Finsness</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © All rights reserved</p>
+    </footer>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        // Strawberry trail effect
+        let lastTrailTime = 0;
+        const trailDelay = 50;
+
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastTrailTime < trailDelay) return;
+            lastTrailTime = now;
+
+            const strawberry = document.createElement('div');
+            strawberry.className = 'strawberry-trail';
+            strawberry.style.left = (e.clientX - 12) + 'px';
+            strawberry.style.top = (e.clientY - 12) + 'px';
+            document.body.appendChild(strawberry);
+
+            setTimeout(() => {
+                strawberry.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

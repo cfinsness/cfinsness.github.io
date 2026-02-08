@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacant to Vibrant - Catherine Finsness</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Terminal Grotesque font from Velvetyne -->
+    <style>
+        @font-face {
+            font-family: 'Terminal Grotesque';
+            src: url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque.woff2') format('woff2'),
+                 url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Terminal Grotesque Open';
+            src: url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque-open.woff2') format('woff2'),
+                 url('https://velvetyne.fr/fonts/terminal-grotesque/terminal-grotesque-open.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        *, *::before, *::after {
+            cursor: url('images/VTV/strawberry_cursor.png'), auto;
+        }
+
+        /* Brutalist design */
+        body {
+            background: #fff;
+            color: #000;
+            min-height: 100vh;
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+        }
+
+        .site-wrapper {
+            background: #fff;
+        }
+
+        .main {
+            background: #fff;
+            border: none;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .project-description {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Brutalist typography */
+        .project-description h1 {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            font-size: 4em;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .project-description h2 {
+            font-family: 'Terminal Grotesque Open', 'Arial', sans-serif;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #555;
+            margin-bottom: 60px;
+            font-weight: normal;
+        }
+
+        .project-description h3 {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            font-size: 2em;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            border-bottom: none;
+            display: block;
+        }
+
+        /* Full-width brutalist section dividers */
+        .section {
+            position: relative;
+            padding-top: 40px;
+        }
+
+        .section::before {
+            content: '';
+            display: block;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 20px,
+                #fff 20px,
+                #fff 40px
+            );
+            margin-bottom: 40px;
+        }
+
+        /* Zigzag divider before Introduction */
+        .section:nth-of-type(1)::before {
+            height: 25px;
+            background:
+                linear-gradient(135deg, #000 25%, transparent 25%) -25px 0,
+                linear-gradient(225deg, #000 25%, transparent 25%) -25px 0,
+                linear-gradient(315deg, #000 25%, transparent 25%),
+                linear-gradient(45deg, #000 25%, transparent 25%);
+            background-size: 50px 50px;
+            background-color: #fff;
+        }
+
+        /* Alternate divider styles for variety */
+        /* Checkered divider before The Stitch */
+        .section:nth-of-type(2)::before {
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 20px,
+                #fff 20px,
+                #fff 40px
+            );
+        }
+
+        /* Colorful header boxes for section titles */
+        .project-description h3 {
+            display: inline-block;
+            padding: 10px 20px;
+        }
+
+        /* The Stitch - pink */
+        .section:nth-of-type(2) h3 {
+            background: #ff1493;
+        }
+
+        /* The Sound - lime green */
+        .section:nth-of-type(3) h3 {
+            background: #32cd32;
+        }
+
+        /* The Reveal - purple */
+        .section:nth-of-type(4) h3 {
+            background: #ba55d3;
+        }
+
+        /* The Screen - cyan */
+        .section:nth-of-type(5) h3 {
+            background: #00ced1;
+        }
+
+        /* The Documentary - yellow */
+        .section:nth-of-type(6) h3 {
+            background: #ffd700;
+        }
+
+        .section:nth-of-type(3)::before {
+            height: 20px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #000 0px,
+                #000 10px,
+                #fff 10px,
+                #fff 20px
+            );
+        }
+
+        .section:nth-of-type(4)::before {
+            height: 30px;
+            background:
+                linear-gradient(#000 4px, transparent 4px),
+                linear-gradient(#fff 100%, #fff 100%);
+            background-size: 100% 10px;
+        }
+
+        .section:nth-of-type(5)::before {
+            height: 20px;
+            background: repeating-linear-gradient(
+                90deg,
+                #000 0px,
+                #000 5px,
+                #fff 5px,
+                #fff 15px
+            );
+        }
+
+        .section:nth-of-type(6)::before {
+            height: 12px;
+            background: #000;
+        }
+
+        .project-description p {
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            line-height: 1.7;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        /* Intro section - two columns */
+        .intro-columns {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .intro-text {
+            flex: 1;
+            border: 2px solid #000;
+            padding: 30px;
+        }
+
+        .intro-video-column {
+            flex: 1;
+        }
+
+        .intro-video-column video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Video embed styling */
+        .video-embed {
+            margin-top: 20px;
+        }
+
+        /* Reveal section image */
+        .reveal-image {
+            margin-top: 30px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Quilt frame for videos */
+        .quilt-frame {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 40px 40px 80px 40px;
+            background-image: url('images/VTV/_MG_4163.JPG');
+            background-size: cover;
+            background-position: center top;
+            border-radius: 15px;
+        }
+
+        .quilt-frame-video-wrapper {
+            width: 420px;
+            height: 315px;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #ba55d3;
+        }
+
+        .quilt-frame-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .quilt-frames-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            margin-top: 30px;
+        }
+
+        .quilt-frames-row .quilt-frame {
+            margin-top: 0;
+        }
+
+        .quilt-frame-2 {
+            background-image: url('images/VTV/_MG_4187.JPG') !important;
+        }
+
+        .quilt-frame-stitch {
+            background-image: url('images/VTV/_MG_4146.JPG') !important;
+            padding-bottom: 96px;
+        }
+
+        .quilt-frame-stitch .quilt-frame-video-wrapper {
+            width: 560px;
+            height: 315px;
+        }
+
+
+        .quilt-frame-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .quilt-frame-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            color: #000;
+            font-size: 0.9em;
+        }
+
+        /* The Sound section */
+        .sound-content {
+            overflow: hidden;
+        }
+
+        .sound-image {
+            float: right;
+            width: 300px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            border: 2px solid #000;
+        }
+
+        /* Music samples styling */
+        .music-intro {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .music-samples {
+            margin-top: 20px;
+        }
+
+        .music-track {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 2px solid #000;
+        }
+
+        .track-title {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            min-width: 150px;
+            margin-right: 20px;
+        }
+
+        .music-track audio {
+            flex-grow: 1;
+        }
+
+        /* The Stitch section video */
+        .stitch-content {
+            overflow: visible;
+        }
+
+
+        /* Quilt carousel */
+        .quilt-carousel {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 15px;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel-track img {
+            min-width: 350px;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px;
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            font-size: 2em;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            color: #000;
+        }
+
+        .prev-btn {
+            left: 0;
+        }
+
+        .next-btn {
+            right: 0;
+        }
+
+        .video-embed iframe {
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Hide sidebar on this page */
+        .sidebar {
+            display: none;
+        }
+
+        /* Full-width layout without sidebar */
+        .site-wrapper {
+            display: block;
+        }
+
+        .main {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #fff;
+            border-top: 2px solid #000;
+            color: #555;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.8em;
+        }
+
+        /* Strawberry trail */
+        .strawberry-trail {
+            position: fixed;
+            pointer-events: none;
+            width: 24px;
+            height: 24px;
+            background-image: url('images/VTV/strawberry_cursor.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 9999;
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-toggle {
+            font-family: 'Terminal Grotesque', 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            background: #fff;
+            color: #000;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <main class="main">
+            <div class="content">
+                <div class="project-description">
+                    <h1>Margaret Fabrizio: A Kaleidoscopic Life</h1>
+                    <h2>95 Years of Curiosity, From Carnegie Hall to the Siddi Forest.</h2>
+
+                    <div class="section">
+                        <div class="intro-columns">
+                            <div class="intro-text">
+                                <p>Margaret Fabrizio does not live in the past; she creates the future. At 95, Margaret is a San Francisco icon whose creative output is as prolific as it is unpredictable. A world-renowned harpsichordist who taught at Stanford for 25 years, she has spent the last two decades reinventing herself as a master of textile art, an absurdist filmmaker, and a digital storyteller.</p>
+                                <p>This pop-up retrospective will be a living 'collage' of a life dedicated to the 'what if?'—inviting you into a world where 17th-century Baroque music meets 21st-century YouTube performance, and where every scrap of fabric has a story to tell.</p>
+                            </div>
+                            <div class="intro-video-column">
+                                <video autoplay loop muted playsinline>
+                                    <source src="images/videos/margaret-intro.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>The Stitch (Quilts & Kawandi)</h3>
+                        <div class="stitch-content">
+                            <p>Margaret's quilts are a masterclass in improvisation. While her early works followed prize-winning traditional patterns, her practice was transformed in 2011 after a journey to India to study with the Siddi women. Learning the Kawandi technique—a method of hand-stitching from the outside-in—Margaret embraced a 'slow-stitch' philosophy. Her current collection of 50+ works features vibrant Indian saris, recycled kimonos, and 'leftover' scraps, with many pieces finished with the signature phula (flower) corners.</p>
+                            <div class="quilt-carousel">
+                                <button class="carousel-btn prev-btn">&larr;</button>
+                                <div class="carousel-container">
+                                    <div class="carousel-track">
+                                        <img src="images/VTV/quilts/111 Garden Spider.png" alt="Garden Spider">
+                                        <img src="images/VTV/quilts/Showtime .png" alt="Showtime">
+                                        <img src="images/VTV/quilts/120 Purple.png" alt="Purple">
+                                        <img src="images/VTV/quilts/108 Dots.png" alt="Dots">
+                                        <img src="images/VTV/quilts/94 Pants and a Girls Top .png" alt="Pants and a Girls Top">
+                                        <img src="images/VTV/quilts/87 Jungle Blossoms.png" alt="Jungle Blossoms">
+                                        <img src="images/VTV/quilts/58 Journey.png" alt="Journey">
+                                        <img src="images/VTV/quilts/78 Elvis Macaroons.png" alt="Elvis Macaroons">
+                                        <img src="images/VTV/quilts/77 Green.png" alt="Green">
+                                        <img src="images/VTV/quilts/73 Gathering of the Tribes.png" alt="Gathering of the Tribes">
+                                        <img src="images/VTV/quilts/54 Siddi Colors.png" alt="Siddi Colors">
+                                        <img src="images/VTV/quilts/Harvest.png" alt="Harvest">
+                                        <img src="images/VTV/quilts/140_liberty_or_death.png" alt="Liberty or Death">
+                                        <img src="images/VTV/quilts/3.png" alt="Quilt 3">
+                                        <img src="images/VTV/quilts/141_summer.png" alt="Summer">
+                                        <img src="images/VTV/quilts/134_control.png" alt="Control">
+                                        <img src="images/VTV/quilts/120_rain_or_shine.png" alt="Rain or Shine">
+                                        <img src="images/VTV/quilts/125_after_the_fall.png" alt="After the Fall">
+                                        <img src="images/VTV/quilts/123_someone_elses_slow_stitched_scraps.png" alt="Someone Elses Slow Stitched Scraps">
+                                        <img src="images/VTV/quilts/122_second_green.png" alt="Second Green">
+                                        <img src="images/VTV/quilts/121_Silk No Cutting.png" alt="Silk No Cutting">
+                                    </div>
+                                </div>
+                                <button class="carousel-btn next-btn">&rarr;</button>
+                            </div>
+                            <div class="quilt-frame-container">
+                                <div class="quilt-frame quilt-frame-stitch">
+                                    <div class="quilt-frame-video-wrapper">
+                                        <iframe src="https://player.vimeo.com/video/1162383287?h=20dbb01d3f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="margaret_vtv_webpage_quilts"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>The Sound (Harpsichord & Performance)</h3>
+                        <div class="sound-content">
+                            <img src="images/VTV/margaret_harpsichord.webp" alt="Margaret at the harpsichord" class="sound-image">
+                            <p>Long before she picked up a needle, Margaret was a pioneer of the harpsichord. As the first artist to perform Bach's Art of Fugue on the harpsichord in America, her musical career spanned from the rigid prestige of Carnegie Hall to the experimental energy of 1970s San Francisco. Whether performing on a synthesizer atop Twin Peaks or collaborating with the Grateful Dead, Margaret's music has always been about pushing boundaries and finding the rhythm in the unexpected.</p>
+                        </div>
+                        <p class="music-intro">Listen to samples of some of Margaret's harpsichord recordings below.</p>
+                        <div class="music-samples">
+                            <div class="music-track">
+                                <span class="track-title">Toccata Quarta — Michelangelo Rossi</span>
+                                <audio controls>
+                                    <source src="music/toccata.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                            <div class="music-track">
+                                <span class="track-title">L'Arlequine — Armand Louis Couperin</span>
+                                <audio controls>
+                                    <source src="music/larlequine.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                            <div class="music-track">
+                                <span class="track-title">Basse de Trompette — Pierre DuMage</span>
+                                <audio controls>
+                                    <source src="music/dumage.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                            <div class="music-track">
+                                <span class="track-title">Hologram #5 (excerpt) • Fabrizio</span>
+                                <audio controls>
+                                    <source src="music/holo5.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>The Reveal (Portrait Masks & Collage)</h3>
+                        <p>For Margaret, a mask is not a way to hide—it is a way to reveal. Her 'Portrait Masks' are built directly onto the subject's face and then meticulously collaged with imagery that reflects their inner life. This body of work gained global recognition when one of her masks—a haunting, multi-eyed creation—was featured on the cover of the Grateful Dead's 1987 album, In the Dark. Her collages and handmade art books continue this theme, weaving together fragments of memory into a cohesive whole.</p>
+                        <div class="video-embed">
+                            <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149049656?h=38910c36c8" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>The Screen (Film & The Digital Archive)</h3>
+                        <p>An 'early YouTuber' in every sense, Margaret has been documenting her creative experiments digitally since 2004. Her channel is a treasure trove of the avant-garde, featuring everything from travelogues in Myanmar to 'absurdist performative skits.' With titles like Samurai Trapped by Macaroons, these films showcase Margaret's razor-sharp wit and her refusal to be defined by her age. Her films don't just document her art; they are her art.</p>
+                        <div class="quilt-frames-row">
+                            <div class="quilt-frame-container">
+                                <div class="quilt-frame">
+                                    <div class="quilt-frame-video-wrapper">
+                                        <iframe src="https://player.vimeo.com/video/1162697798?h=81dd16702a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Vlog #1"></iframe>
+                                    </div>
+                                </div>
+                                <p class="quilt-frame-caption">Vlog #1, 2007</p>
+                            </div>
+                            <div class="quilt-frame-container">
+                                <div class="quilt-frame quilt-frame-2">
+                                    <div class="quilt-frame-video-wrapper">
+                                        <iframe src="https://player.vimeo.com/video/1162701217?h=857dec0388&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Re; a Real Video Blogger"></iframe>
+                                    </div>
+                                </div>
+                                <p class="quilt-frame-caption">Re: a Real Video Blogger, 2007</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>The Documentary</h3>
+                        <p>The Kaleidoscopic project is also the site of an active film production. We are currently documenting Margaret's process as she curates this retrospective and engages with the San Francisco community. This space serves as both a gallery and a film set—a place where the past 95 years of work meet the lens of the future.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <p>Copyright © All rights reserved</p>
+    </footer>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script>
+        // Strawberry trail effect
+        let lastTrailTime = 0;
+        const trailDelay = 50; // milliseconds between trail elements
+
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastTrailTime < trailDelay) return;
+            lastTrailTime = now;
+
+            const strawberry = document.createElement('div');
+            strawberry.className = 'strawberry-trail';
+            strawberry.style.left = (e.clientX - 12) + 'px';
+            strawberry.style.top = (e.clientY - 12) + 'px';
+            document.body.appendChild(strawberry);
+
+            // Remove the element after animation completes
+            setTimeout(() => {
+                strawberry.remove();
+            }, 1000);
+        });
+
+        // Quilt carousel
+        const track = document.querySelector('.carousel-track');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const images = track.querySelectorAll('img');
+        const imageWidth = 365; // 350px + 15px gap
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex -= 3;
+                if (currentIndex < 0) currentIndex = 0;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = images.length - Math.floor(track.parentElement.offsetWidth / imageWidth);
+            if (currentIndex < maxIndex) {
+                currentIndex += 3;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                updateCarousel();
+            }
+        });
+
+    </script>
+</body>
+</html>
