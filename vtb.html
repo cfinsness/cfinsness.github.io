@@ -601,6 +601,199 @@
             width: 100%;
         }
 
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-left: 0;
+            }
+
+            .main {
+                padding: 10px;
+            }
+
+            /* Remove all collage rotations */
+            .project-description h1,
+            .project-description h2,
+            .intro-section,
+            .intro-video-float,
+            .quilt-strip,
+            .stitch-section,
+            .stitch-video-container,
+            .sound-section,
+            .reveal-section,
+            .documentary-section,
+            .documentary-image,
+            .artbooks-section,
+            .artbooks-video,
+            .screen-section,
+            .quilt-frame,
+            .quilt-frame-2,
+            .stitch-section h3,
+            .sound-section h3,
+            .reveal-section h3,
+            .screen-section h3 {
+                transform: none !important;
+            }
+
+            /* Header */
+            .project-description h1 {
+                font-size: 2.2em;
+                padding: 15px 20px;
+            }
+
+            .project-description h2 {
+                font-size: 1em;
+                padding: 10px 15px;
+            }
+
+            /* Intro row - stack */
+            .intro-row {
+                flex-wrap: wrap;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .intro-section {
+                max-width: 100%;
+            }
+
+            .intro-video-float {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .intro-video-float iframe {
+                height: 56vw;
+            }
+
+            /* Quilt carousel */
+            .quilt-strip .carousel-track img {
+                min-width: 250px;
+                height: 250px;
+            }
+
+            /* Collage rows - stack */
+            .collage-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .collage-row.overlap-up {
+                margin-top: 0;
+            }
+
+            .float-section {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+
+            /* Video + Sound row */
+            .video-sound-row {
+                flex-wrap: wrap;
+                margin-left: 0;
+            }
+
+            .stitch-video-container {
+                margin-left: 0;
+            }
+
+            .stitch-video-container iframe {
+                width: 100%;
+                height: 56vw;
+            }
+
+            .sound-section {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            /* Reveal + Artbooks row */
+            .reveal-artbooks-row {
+                flex-wrap: wrap;
+                margin-left: 0;
+            }
+
+            .reveal-artbooks-row .reveal-section {
+                margin-left: 0;
+            }
+
+            .reveal-section .video-embed {
+                width: 100%;
+            }
+
+            .reveal-section .video-embed iframe {
+                width: 100%;
+                height: 56vw;
+            }
+
+            .artbooks-wrapper {
+                margin-left: 0;
+                margin-top: 0;
+            }
+
+            .artbooks-video iframe {
+                width: 100%;
+                height: 56vw;
+            }
+
+            /* Screen row */
+            .screen-row {
+                margin-top: 30px;
+            }
+
+            .screen-section {
+                min-width: unset !important;
+                max-width: 100% !important;
+            }
+
+            .screen-videos {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .video-with-caption-2 {
+                margin-top: 0;
+                margin-left: 0;
+            }
+
+            .quilt-frame,
+            .quilt-frame-2 {
+                padding: 15px;
+            }
+
+            .quilt-frame-video-wrapper,
+            .quilt-frame-2 .quilt-frame-video-wrapper {
+                width: 80vw;
+                height: 60vw;
+            }
+
+            /* Documentary row */
+            .documentary-row {
+                flex-wrap: wrap;
+            }
+
+            .documentary-image {
+                margin-left: 0;
+            }
+
+            .documentary-image img {
+                width: 100%;
+                max-width: 100% !important;
+            }
+
+            /* Music tracks */
+            .music-track {
+                flex-wrap: wrap;
+            }
+
+            .music-track audio {
+                width: 100%;
+            }
+        }
+
         /* Strawberry trail */
         .strawberry-trail {
             position: fixed;
@@ -643,7 +836,7 @@
                         <div class="float-section intro-section">
                             <div class="intro-text">
                                 <p>Margaret Fabrizio does not live in the past; she creates the future. At 95, Margaret is a San Francisco icon whose creative output is as prolific as it is unpredictable.</p>
-                                <p>This pop-up retrospective will be a living 'collage' of a life dedicated to the 'what if?'—inviting you into a world where 17th-century Baroque music meets 21st-century YouTube performance.</p>
+                                <p>This Vacant to Vibrant pop-up retrospective will be a living 'collage' of a life dedicated to the 'what if?'—inviting you into a world where 17th-century Baroque music meets 21st-century YouTube performance.</p>
                             </div>
                         </div>
                         <div class="intro-video-float">
@@ -756,7 +949,7 @@
                     <div class="collage-row documentary-row">
                         <div class="float-section documentary-section">
                             <h3>The Documentary</h3>
-                            <p>We are currently documenting Margaret's process as we curates this retrospective together. This space serves as both a gallery and a film set—where the past 95 years of work meet the lens of the future.</p>
+                            <p>We are currently documenting Margaret's process as we curates this retrospective together. This Vacant to Vibrant space will serve as gallery, workshop and film set, where the past 95 years of work meet the lens of the future.</p>
                         </div>
                         <div class="documentary-image">
                             <img src="images/VTV/forweb/margaret-lynn-hershman_008.jpg" alt="Margaret documentary">
